@@ -27,6 +27,7 @@ public class Main {
 
         do {
             //welcome
+            System.out.println(" ");
             System.out.println("Benvenuto nel gestionale del tuo SHOP!");
             System.out.println("Potrai inserire Categorie Prodotto e Prodotti e visualizzare le loro informazioni!");
             System.out.println("Iniziamo!");
@@ -107,11 +108,12 @@ public class Main {
 
                             } while (userChoose == 1);
 
-                                    System.out.println("Hai inserito: " + products.size() + " prodotti!");
+                                    System.out.println("Hai inserito: n. " + products.size() + " prodotti!");
                                     System.out.println("------------------------------------------------");
-
-                                    System.out.println("Cosa Desideri fare adesso?");
                                     System.out.println(" ");
+                                    System.out.println("------------------------------------------------");
+                                    System.out.println("Cosa Desideri fare adesso?");
+                                    System.out.println("------------------------------------------------");
                                     System.out.println("1. Vedere tutti i prodotti inseriti");
                                     System.out.println("2. Vedere il nome completo (nome e codice univoco) dei prodotti.");
                                     System.out.println("3. Vedere il prezzo dei un prodotti.");
@@ -200,6 +202,7 @@ public class Main {
                                     System.out.println("Scelta non valida.");
                             }
 
+                            System.out.println("------------------------------------------------");
                             System.out.println("Vuoi tornare al menù principale?");
                             System.out.println("1. Si");
                             System.out.println("2. No, voglio uscire dal programma.");
@@ -209,7 +212,8 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.println("Devi Inserire una categoria altrimenti torna dopo!");
+                    System.out.println("Devi Inserire una categoria, torna dopo!");
+                    userChoose = 0;
                     break;
 
                 default:
@@ -218,7 +222,7 @@ public class Main {
             }
 
             if(userChoose == 2) {
-                System.out.println("Ok stai per uscire dal programma...");
+                System.out.println("Stai per uscire dal programma...");
             } else {
                 System.out.println("Vuoi tornare al menù principale?");
                 System.out.println("1. Si");

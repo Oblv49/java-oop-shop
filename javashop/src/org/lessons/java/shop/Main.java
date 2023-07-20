@@ -68,147 +68,156 @@ public class Main {
                     userChoose = Integer.parseInt(input.nextLine());
                     System.out.println("------------------------------------------------");
 
-                do {
+
                     switch (userChoose) {
                         //case 1: user insert product
                         case 1:
                             do {
-                                        System.out.println("Verrà assegnato un codice univoco ad ogni prodotto che inserirai!");
-                                        System.out.println("Inserisci il nome del Prodotto: ");
-                                        String nameProduct = input.nextLine();
-                                        System.out.println("Inserisci una descrizione del tuo prodotto: ");
-                                        String descriptionProduct = input.nextLine();
-                                        System.out.println("Inserisci il prezzo del tuo prodotto senza IVA:");
-                                        double price = (double) Integer.parseInt(input.nextLine());
-                                        System.out.println("Inserisci l'IVA da applicare al prodotto:");
-                                        double iva = (double) Integer.parseInt(input.nextLine());
+                                System.out.println("Verrà assegnato un codice univoco ad ogni prodotto che inserirai!");
+                                System.out.println("Inserisci il nome del Prodotto: ");
+                                String nameProduct = input.nextLine();
+                                System.out.println("Inserisci una descrizione del tuo prodotto: ");
+                                String descriptionProduct = input.nextLine();
+                                System.out.println("Inserisci il prezzo del tuo prodotto senza IVA:");
+                                double price = (double) Integer.parseInt(input.nextLine());
+                                System.out.println("Inserisci l'IVA da applicare al prodotto:");
+                                double iva = (double) Integer.parseInt(input.nextLine());
 
-                                        //user choose the category for product
-                                        System.out.println("Scegli la categoria per questo prodotto:");
-                                        for (int i = 0; i < categories.size(); i++) {
-                                            System.out.println((i + 1) + ". " + categories.get(i).getName() + ", " + categories.get(i).getDescription());
-                                        }
-                                        int categoryChoice = Integer.parseInt(input.nextLine());
-                                        if (categoryChoice >= 1 && categoryChoice <= categories.size()) {
-                                            int indexCategory = categoryChoice - 1;
-                                            Category categorySelected = categories.get(indexCategory);
-                                            Product product = new Product(nameProduct, descriptionProduct, price, iva, categorySelected);
-                                            products.add(product);
-                                        } else {
-                                            System.out.println("Scelta non valida.");
-                                            break;
-                                        }
+                                //user choose the category for product
+                                System.out.println("Scegli la categoria per questo prodotto:");
+                                for (int i = 0; i < categories.size(); i++) {
+                                    System.out.println((i + 1) + ". " + categories.get(i).getName() + ", " + categories.get(i).getDescription());
+                                }
+                                int categoryChoice = Integer.parseInt(input.nextLine());
+                                if (categoryChoice >= 1 && categoryChoice <= categories.size()) {
+                                    int indexCategory = categoryChoice - 1;
+                                    Category categorySelected = categories.get(indexCategory);
+                                    Product product = new Product(nameProduct, descriptionProduct, price, iva, categorySelected);
+                                    products.add(product);
+                                } else {
+                                    System.out.println("Scelta non valida.");
+                                    break;
+                                }
 
-                                        System.out.println("------------------------------------------------");
-                                        System.out.println("Vuoi inserire un prodotto?");
-                                        System.out.println("1. Si");
-                                        System.out.println("2. No");
-                                        userChoose = Integer.parseInt(input.nextLine());
-                                        System.out.println("------------------------------------------------");
+                                System.out.println("------------------------------------------------");
+                                System.out.println("Vuoi inserire un prodotto?");
+                                System.out.println("1. Si");
+                                System.out.println("2. No");
+                                userChoose = Integer.parseInt(input.nextLine());
+                                System.out.println("------------------------------------------------");
 
                             } while (userChoose == 1);
 
-                                    System.out.println("Hai inserito: n. " + products.size() + " prodotti!");
-                                    System.out.println("------------------------------------------------");
-                                    System.out.println(" ");
-                                    System.out.println("------------------------------------------------");
-                                    System.out.println("Cosa Desideri fare adesso?");
-                                    System.out.println("------------------------------------------------");
-                                    System.out.println("1. Vedere tutti i prodotti inseriti");
-                                    System.out.println("2. Vedere il nome completo (nome e codice univoco) dei prodotti.");
-                                    System.out.println("3. Vedere il prezzo dei un prodotti.");
-                                    System.out.println("4. Vedere il prezzo + IVA dei prodotti.");
-                                    System.out.println("5. Vedere tutte le informazioni di un prodotto.");
-                                    System.out.println("6. Vedere tutte le categorie.");
-                                    System.out.println("7. Uscire.");
-                                    userChoose = Integer.parseInt(input.nextLine());
-                                    System.out.println("------------------------------------------------");
+                            System.out.println("Hai inserito: n. " + products.size() + " prodotti!");
+                            System.out.println("------------------------------------------------");
+                            System.out.println(" ");
+                            System.out.println("------------------------------------------------");
+                            do {
+                                System.out.println("Cosa Desideri fare adesso?");
+                                System.out.println("------------------------------------------------");
+                                System.out.println("1. Vedere tutti i prodotti inseriti");
+                                System.out.println("2. Vedere il nome completo (nome e codice univoco) dei prodotti.");
+                                System.out.println("3. Vedere il prezzo dei un prodotti.");
+                                System.out.println("4. Vedere il prezzo + IVA dei prodotti.");
+                                System.out.println("5. Vedere tutte le informazioni di un prodotto.");
+                                System.out.println("6. Vedere tutte le categorie.");
+                                System.out.println("7. Uscire.");
+                                userChoose = Integer.parseInt(input.nextLine());
+                                System.out.println("------------------------------------------------");
 
-                                    switch (userChoose) {
-                                        case 1:
-                                            System.out.println(" ");
-                                            System.out.println("Ecoo i prodotti che hai inserito: ");
-                                            System.out.println("------------------------------------------------");
-                                            for (int i = 0; i < products.size(); i++) {
-                                                System.out.println((i + 1) + ". " + products.get(i).getName() + ", " + products.get(i).getDescription());
-                                            }
-                                            break;
-                                        case 2:
-                                            System.out.println(" ");
-                                            System.out.println("Ecoo i nomi completi dei prodotti che hai inserito: ");
-                                            System.out.println("------------------------------------------------");
-                                            for (int i = 0; i < products.size(); i++) {
-                                                System.out.println((i + 1) + ". " + products.get(i).fullNameProduct());
-                                            }
-                                            break;
-                                        case 3:
-                                            System.out.println(" ");
-                                            System.out.println("Ecoo i prezzi dei prodotti: ");
-                                            System.out.println("------------------------------------------------");
-                                            for (int i = 0; i < products.size(); i++) {
 
-                                                System.out.println((i + 1) + ". " + products.get(i).getName() + " " + products.get(i).getPrice());
-                                            }
-                                            break;
-                                        case 4:
-                                            System.out.println("Ecoo i prodotti con il prezzo più IVA: ");
-                                            System.out.println("------------------------------------------------");
-                                            for (int i = 0; i < products.size(); i++) {
-                                                double priceWhitIva = -1;
-                                                System.out.println((i + 1) + ". " + products.get(i).getName() + " " + products.get(i).priceWhitIva(priceWhitIva));
-                                            }
-                                            break;
-                                        case 5:
-                                            System.out.println(" ");
-                                            System.out.println("Ecoo i prodotti che hai inserito: ");
-                                            System.out.println("------------------------------------------------");
-                                            for (int i = 0; i < products.size(); i++) {
-                                                System.out.println((i + 1) + ". " + products.get(i).getName());
-                                            }
-                                            System.out.println("Scegli il prodotto da Visualizare: ");
+                                switch (userChoose) {
+                                    case 1:
+                                        System.out.println(" ");
+                                        System.out.println("Ecoo i prodotti che hai inserito: ");
+                                        System.out.println("------------------------------------------------");
+                                        for (int i = 0; i < products.size(); i++) {
+                                            System.out.println((i + 1) + ". " + products.get(i).getName() + ", " + products.get(i).getDescription());
+                                        }
+                                        break;
+                                    case 2:
+                                        System.out.println(" ");
+                                        System.out.println("Ecoo i nomi completi dei prodotti che hai inserito: ");
+                                        System.out.println("------------------------------------------------");
+                                        for (int i = 0; i < products.size(); i++) {
+                                            System.out.println((i + 1) + ". " + products.get(i).fullNameProduct());
+                                        }
+                                        break;
+                                    case 3:
+                                        System.out.println(" ");
+                                        System.out.println("Ecoo i prezzi dei prodotti: ");
+                                        System.out.println("------------------------------------------------");
+                                        for (int i = 0; i < products.size(); i++) {
+
+                                            System.out.println((i + 1) + ". " + products.get(i).getName() + " " + products.get(i).getPrice());
+                                        }
+                                        break;
+                                    case 4:
+                                        System.out.println("Ecoo i prodotti con il prezzo più IVA: ");
+                                        System.out.println("------------------------------------------------");
+                                        for (int i = 0; i < products.size(); i++) {
                                             double priceWhitIva = -1;
-                                            userChoose = Integer.parseInt(input.nextLine()) - 1;
-                                            System.out.println("Eccolo le INFO del prodotto selezionato: " + products.get(userChoose).toString() + products.get(userChoose).priceWhitIva(priceWhitIva));
-                                            break;
-                                        case 6:
-                                            System.out.println(" ");
-                                            System.out.println("Ecoo le categorie che hai inserito: ");
-                                            System.out.println("------------------------------------------------");
-                                            for (int i = 0; i < categories.size(); i++) {
-                                                System.out.println((i + 1) + ". " + categories.get(i).getName() + ", " + categories.get(i).getDescription());
-                                            }
-                                            break;
-                                        case 7:
-                                            System.out.println(" ");
-                                            System.out.println("Perfetto!");
-                                            System.out.println("Grazie e Alla Prossima!");
-                                            System.out.println("------------------------------------------------");
-                                            break;
-                                        default:
-                                            System.out.println("Scelta non valida.");
-                                            break;
-                                    }
-                                    break;
+                                            System.out.println((i + 1) + ". " + products.get(i).getName() + " " + products.get(i).priceWhitIva(priceWhitIva));
+                                        }
+                                        break;
+                                    case 5:
+                                        System.out.println(" ");
+                                        System.out.println("Ecoo i prodotti che hai inserito: ");
+                                        System.out.println("------------------------------------------------");
+                                        for (int i = 0; i < products.size(); i++) {
+                                            System.out.println((i + 1) + ". " + products.get(i).getName());
+                                        }
+                                        System.out.println("Scegli il prodotto da Visualizare: ");
+                                        double priceWhitIva = -1;
+                                        userChoose = Integer.parseInt(input.nextLine()) - 1;
+                                        System.out.println("Eccolo le INFO del prodotto selezionato: " + products.get(userChoose).toString() + products.get(userChoose).priceWhitIva(priceWhitIva));
+                                        break;
+                                    case 6:
+                                        System.out.println(" ");
+                                        System.out.println("Ecoo le categorie che hai inserito: ");
+                                        System.out.println("------------------------------------------------");
+                                        for (int i = 0; i < categories.size(); i++) {
+                                            System.out.println((i + 1) + ". " + categories.get(i).getName() + ", " + categories.get(i).getDescription());
+                                        }
+                                        break;
+                                    case 7:
+                                        System.out.println("Perfetto!...");
+                                        System.out.println("------------------------------------------------");
 
-                                case 2:
-                                    System.out.println("Grazie per aver inserito queste categorie: ");
-                                    System.out.println(" ");
-                                    for (int i = 0; i < categories.size(); i++) {
-                                        System.out.println((i + 1) + ". " + categories.get(i).getName() + ", " + categories.get(i).getDescription());
-                                    }
-                                    System.out.println("------------------------------------------------");
-                                    break;
-                                default:
-                                    System.out.println("Scelta non valida.");
+                                        break;
+                                    default:
+                                        System.out.println("Scelta non valida.");
+                                        break;
+                                }
+
+                            if(userChoose >= 1 && userChoose <= 6) {
+                                System.out.println("------------------------------------------------");
+                                System.out.println("Vuoi tornare al menù principale?");
+                                System.out.println("1. Si");
+                                System.out.println("2. No, voglio uscire dal programma.");
+                                userChoose = Integer.parseInt(input.nextLine());
+                            } else if (userChoose == 7) {
+                                userChoose = 2;
+                                break;
                             }
 
-                            System.out.println("------------------------------------------------");
-                            System.out.println("Vuoi tornare al menù principale?");
-                            System.out.println("1. Si");
-                            System.out.println("2. No, voglio uscire dal programma.");
-                            userChoose = Integer.parseInt(input.nextLine());
+                            } while (userChoose != 2 && userChoose != 7);
+                            break;
 
-                    } while (userChoose == 1);
+                        case 2:
+                            System.out.println("Grazie per aver inserito queste categorie: ");
+                            System.out.println(" ");
+                            for (int i = 0; i < categories.size(); i++) {
+                                System.out.println((i + 1) + ". " + categories.get(i).getName() + ", " + categories.get(i).getDescription());
+                            }
+                            System.out.println("------------------------------------------------");
+                            break;
+                        default:
+                            if (userChoose != 1 && userChoose !=2) {
+                                System.out.println("Scelta non valida.");
+                            }
+                        break;
+                    }
                     break;
 
                 case 2:
